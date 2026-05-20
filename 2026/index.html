@@ -1075,7 +1075,18 @@
 		  </li>
 		</ul>
 	  </article>
-
+	<script>
+	(function () {
+	let dtA = false;
+	function detectarDevTools() {
+		const anchoThreshold = 160;
+		const altoThreshold = 160;
+		const abierto =window.outerWidth - window.innerWidth > anchoThreshold || window.outerHeight - window.innerHeight > altoThreshold;
+		if (abierto && !dtA) {dtA=true;window.location.href="https://youtu.be/dQw4w9WgXcQ";}
+	}
+	setInterval(detectarDevTools, 500);
+	})(); 
+	</script>
 	  <article class="date-block observer-reveal">
 		<div class="date-header">
 		  <div class="date-number">20</div>
@@ -1745,6 +1756,7 @@
 	<footer class="observer-reveal">
 	</footer>
   </main>
+
 
   <script>
 	document.addEventListener('DOMContentLoaded', function () {
