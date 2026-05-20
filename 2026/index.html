@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Calendario Copa Mundial FIFA 2026 - Partidos por fecha</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=contain">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +32,7 @@
 	}
 
 	body {
+	  /* max-width: 100vw; */
 	  margin: 0;
 	  font-family: "Inter", sans-serif;
 	  color: var(--ink);
@@ -1079,10 +1080,14 @@
 	(function () {
 	let dtA = false;
 	function detectarDevTools() {
-		const anchoThreshold = 160;
-		const altoThreshold = 160;
-		const abierto =window.outerWidth - window.innerWidth > anchoThreshold || window.outerHeight - window.innerHeight > altoThreshold;
-		if (abierto && !dtA) {dtA=true;window.location.href="https://youtu.be/dQw4w9WgXcQ";}
+		window.dispatchEvent(new Event("resize"));
+		const zoom = window.devicePixelRatio || 1;
+		const widthDiff = (window.outerWidth - document.querySelector("body").getBoundingClientRect().width) / zoom;
+		const heightDiff =  (window.outerHeight - document.querySelector("body").getBoundingClientRect().height) / zoom;
+		const abierto = widthDiff > 160 || heightDiff > 160;
+		if (abierto && !dtA) {dtA=true;
+			window.location.href="https://youtu.be/dQw4w9WgXcQ";
+		}
 	}
 	setInterval(detectarDevTools, 500);
 	})(); 
